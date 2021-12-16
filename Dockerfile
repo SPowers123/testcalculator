@@ -1,2 +1,7 @@
-FROM httpd:2.4
-COPY ./src/ /usr/local/apache2/htdocs/
+FROM python:3.7
+
+ADD . .
+
+RUN pip install -r requirements.txt
+
+CMD ["python", "-m", "unittest", "discover", "-s","Tests", "calculator.py"]
