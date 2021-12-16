@@ -1,3 +1,3 @@
 # testcalculator
 
-<a href="">Calulator</a>
+<a href="/templates/">Calulator</a>
