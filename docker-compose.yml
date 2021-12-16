@@ -1,8 +1,19 @@
 version: "3.2"
 services:
-  apache:
+  flask:
     build: .
+    restart: always
+    environment:
+      - APP_NAME=flask
+    expose:
+      - 5000
+    stdin_open: true # docker run -i
+    tty: true        # docker run -t
+    volumes:
+      - .:/home/myuser
+  nginx:
+    build: ./nginx
+    container_name: nginx
+    restart: always
     ports:
       - "5000:5000"
-    volumes:
-      - ./src/:/usr/local/apache2/htdocs/
